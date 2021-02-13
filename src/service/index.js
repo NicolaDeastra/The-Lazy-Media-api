@@ -1,21 +1,19 @@
 import axios from 'axios'
 
-class Service {
-  static fetchService = async (url, res) => {
-    try {
-      const response = await axios(url)
+const fetchService = async (url, res) => {
+  try {
+    const response = await axios.get(url)
 
-      return await response
-    } catch (error) {
-      res.send({
-        status: false,
-        code: 404,
-        message: 'You got Error',
-      })
+    return await response
+  } catch (error) {
+    res.send({
+      status: false,
+      code: 404,
+      message: 'You got Error',
+    })
 
-      throw error
-    }
+    throw error
   }
 }
 
-export default Service
+export default fetchService

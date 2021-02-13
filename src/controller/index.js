@@ -1,50 +1,28 @@
-import cheerio from 'cheerio'
-
-import { baseUrl, rootUrl } from '../constant'
-import Service from '../service'
-
-const fetchData = (req, res, response) => {
-  try {
-    const $ = cheerio.load(response.data)
-    const element = $('.indt-container')
-
-    let title, thumb, desc, key
-    let destinationHighlights = []
-
-    element.find('.no-gutters')
-    element.find('.col-high-dest').each((i, e) => {
-      title = $(e).find('.new-hhd-body').text()
-      thumb = $(e)
-        .find('.new-hhd-card')
-        .css('background-image')
-        .replace('url(', rootUrl)
-        .replace(')', '')
-      desc = $(e).find('.hd-description').text()
-      key = $(e).find('h2').text().toLowerCase().replace(' ', '-')
-
-      destinationHighlights.push({
-        title,
-        key,
-        thumb,
-        desc,
-      })
-    })
-
-    res.send({
-      method: req.method,
-      status: true,
-      result: destinationHighlights,
-    })
-  } catch (error) {
-    return error
-  }
-}
+import baseUrl from '../constant'
+import fetchService from '../service'
+import Load from '../utils'
 
 const Controller = {
-  getHighlights: async (req, res) => {
+  getGame: async (req, res) => {
+    const { page = 1 } = req.query
+
     try {
-      const response = await Service.fetchService(`${baseUrl}`)
-      return fetchData(req, res, response)
+      const response = await fetchService(`${baseUrl}/games/page/${page}`, res)
+      return Load.articles(req, res, response)
+    } catch (error) {
+      return error
+    }
+  },
+
+  getGameConsole: async (req, res) => {
+    const { page = 1 } = req.query
+
+    try {
+      const response = await fetchService(
+        `${baseUrl}/games/console-game/page/${page}`,
+        res,
+      )
+      return Load.articles(req, res, response)
     } catch (error) {
       return error
     }

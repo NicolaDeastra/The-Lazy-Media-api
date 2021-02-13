@@ -1,5 +1,5 @@
-# Wonderful Indonesia API
+# The Lazy Media API
 
-Unofficial wonderful Indonesia Api
+Unofficial The Lazy Media Api
 
 🔧 On Progress

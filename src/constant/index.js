@@ -1,2 +1,3 @@
-export const baseUrl = 'https://www.indonesia.travel/gb/en/home'
-export const rootUrl = 'https://www.indonesia.travel/'
+const baseUrl = 'https://thelazy.media/category/'
+
+export default baseUrl
