@@ -95,7 +95,9 @@ const Load = {
         let image = $(e).find('a img').attr('src')
         let img = $(e).find('img').attr('src')
 
-        content.push(text, image, img, heading)
+        let iframe = $(e).find('iframe').attr('src')
+
+        content.push(text, image, img, heading, iframe)
       })
 
       object.title = title

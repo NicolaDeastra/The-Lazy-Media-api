@@ -19,6 +19,7 @@
   "rules": {
     "semi": "off",
     "import/no-named-as-default": "off",
-    "prefer-const": "off"
+    "prefer-const": "off",
+    "object-curly-newline": "off"
   }
 }
