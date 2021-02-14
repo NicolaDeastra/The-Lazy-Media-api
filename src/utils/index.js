@@ -14,6 +14,7 @@ const Load = {
       let href
       let desc
       let key
+
       let media = []
 
       element.find('.td_module_wrap').each((i, e) => {
@@ -47,11 +48,73 @@ const Load = {
     }
   },
 
-  //   detail: async (req, res, response) => {
-  //     try {
+  detail: async (req, res, response) => {
+    try {
+      const $ = cheerio.load(response.data)
 
-  //     } catch (error) {}
-  //   },
+      const elementHeader = $('.td-post-header')
+      const elementPost = $('.td-post-content')
+
+      let object = {}
+      let title
+      let thumb
+      let author
+      let date
+      let categories = []
+      let content = []
+      let figure = []
+
+      title = elementHeader.find('.entry-title').text()
+      thumb = elementHeader.find('.td-post-featured-image a img').attr('src')
+      author = elementHeader.find('.td-post-author-name a').text()
+      date = elementHeader.find('.td-post-date time').text()
+
+      elementHeader.find('.td-category .entry-category').each((i, e) => {
+        let text = $(e).find('a').text()
+
+        categories.push(text)
+      })
+
+      elementPost.find('div').each((i, e) => {
+        let text = $(e).text()
+        let image = $(e).find('a img').attr('src')
+
+        content.push(text, image)
+      })
+
+      elementPost.find('figure').each((i, e) => {
+        let figureImg = $(e).find('img').attr('src')
+
+        figure.push(figureImg)
+      })
+
+      elementPost.find('p').each((i, e) => {
+        let text = $(e).text()
+        let heading = $(e).find('h5').text()
+
+        let image = $(e).find('a img').attr('src')
+        let img = $(e).find('img').attr('src')
+
+        content.push(text, image, img, heading)
+      })
+
+      object.title = title
+      object.thumb = thumb
+      object.author = author
+      object.date = date
+      object.categories = categories
+      object.figure = figure
+      object.content = content.filter((x) => x)
+
+      return res.send({
+        method: req.method,
+        status: true,
+        results: object,
+      })
+    } catch (error) {
+      return error
+    }
+  },
 }
 
 export default Load

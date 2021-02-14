@@ -1,3 +1,3 @@
-const baseUrl = 'https://thelazy.media/category/'
+const baseUrl = 'https://thelazy.media/'
 
 export default baseUrl
