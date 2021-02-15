@@ -47,7 +47,6 @@ Unofficial The Lazy Media Api
 
 * `games news`
 
-
 ```
 /api/games?page=1
 ```
@@ -92,6 +91,50 @@ Unofficial The Lazy Media Api
 ----
 
 
+* `tech news`
+
+```
+/api/tech?page=1
+```
+
+
+* `tech cranky-lounge`
+
+```
+/api/tech/cranky-lounge?page=1
+```
+
+* `tech news update`
+
+```
+/api/tech/news?page=1
+```
+
+* `tech setup`
+
+```
+/api/tech/setup?page=1
+```
+
+* `tech recommend`
+
+```
+/api/tech/recommend?page=1
+```
+
+* `tech review`
+
+```
+/api/tech/review?page=1
+```
+
+* `tech tip`
+
+```
+/api/tech/tip?page=1
+```
+
+----
 ### Development
 
 Want to contribute? Great!

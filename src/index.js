@@ -17,6 +17,13 @@ app.get('/', (req, res) => {
   })
 })
 
+app.get('*', (req, res) => {
+  res.send({
+    message: 'endpoint not found, visit link on bellow for documentation 👇',
+    documentation: 'https://github.com/NicolaDonoastro/The-Lazy-Media-api',
+  })
+})
+
 app.listen(port, () => {
   console.log(`Running away on ${port}`)
 })
