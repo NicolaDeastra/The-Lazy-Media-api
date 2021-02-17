@@ -135,6 +135,14 @@ Unofficial The Lazy Media Api
 ```
 
 ----
+
+* `search`
+
+```
+/api/search?search=gta
+```
+
+----
 ### Development
 
 Want to contribute? Great!
@@ -155,6 +163,8 @@ If you find a bug (the website couldn't handle the query and / or gave undesired
 
 If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/NicolaDonoastro/The-Lazy-Media-api/issues). Please include sample queries and their corresponding results.
 
+### Showcase
 
+App Showcase that use this API (you can add your app by edit this readme)
 
 🔧 Still On Progress

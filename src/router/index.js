@@ -8,6 +8,7 @@ const router = express.Router()
 
 router.get('/', Controller.getGreet)
 router.get('/detail/:year/:month/:day/:key', Controller.getDetail)
+router.get('/search', Controller.getSearch)
 
 router.get('/games', Games.getGame)
 router.get('/games/console-game', Games.getConsole)

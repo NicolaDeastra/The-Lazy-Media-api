@@ -29,6 +29,18 @@ const Controller = {
       return error
     }
   },
+
+  getSearch: async (req, res) => {
+    const { search = '' } = req.query
+
+    try {
+      const response = await fetchService(`${baseUrl}/?s=${search}`, res)
+
+      return Load.articles(req, res, response)
+    } catch (error) {
+      return error
+    }
+  },
 }
 
 export default Controller
