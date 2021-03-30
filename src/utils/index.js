@@ -38,11 +38,7 @@ const Load = {
         })
       })
 
-      return res.send({
-        method: req.method,
-        status: true,
-        result: media,
-      })
+      return res.send(media)
     } catch (error) {
       return error
     }
